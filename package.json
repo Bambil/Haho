@@ -1,0 +1,34 @@
+{
+  "name": "haho",
+  "version": "0.0.1",
+  "description": "Haho mqtt plugin for hapi.js",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bambil/Haho.git"
+  },
+  "keywords": [
+    "hapi.js",
+    "mqtt",
+    "hapi.js-plugin"
+  ],
+  "author": "Iman Tabrizian <tabrizian@outlook.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/bambil/Haho/issues"
+  },
+  "homepage": "https://github.com/bambil/Haho#readme",
+  "dependencies": {
+    "mqtt": "^2.11.0"
+  },
+  "devDependencies": {
+    "eslint-config-hapi": "^10.0.0",
+    "eslint-plugin-hapi": "^4.0.0"
+  }
+}
