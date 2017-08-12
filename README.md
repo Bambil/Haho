@@ -1,7 +1,7 @@
 # Haho
 Haho mqtt plugin for hapi.js.
 
-> Paho Mqtt moves into Hapi then they call it Haho. :P
+> Paho Mqtt moves into Hapi then they call it Haho. :stuck_out_tongue_winking_eye:
 
 ## Usage
 
