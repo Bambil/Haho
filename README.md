@@ -5,7 +5,7 @@ Haho mqtt plugin for hapi.js
 
 ```javascript
 const Hapi = require('hapi');
-const Haho = require('../lib');
+const Haho = require('haho');
 
 
 const server = new Hapi.Server();
@@ -25,6 +25,7 @@ server.register({
         console.log('Failed loading plugin');
     }
 
+    /* start the server after plugin registration */
     server.start((err) => {
 
         if (err) {
