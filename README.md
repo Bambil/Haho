@@ -7,7 +7,6 @@ Haho mqtt plugin for hapi.js.
 
 ```javascript
 const Hapi = require('hapi');
-const Haho = require('haho');
 
 
 const server = new Hapi.Server();
@@ -17,16 +16,22 @@ server.connection({
 });
 
 server.register({
-    register: Haho,
+    register: require('Haho'),
     options: {
-        url: 'mqtt://192.168.73.5:1883'
+        url: 'mqtt://localhost:1883'
     }
 }, (err) => {
 
     if (err) {
         console.log('Failed loading plugin');
     }
+    
+    const haho = server.plugins.haho;
+    haho.subscribe('test/hello', (topic, message) => {
 
+        console.log('message', message);
+    });
+    
     /* start the server after plugin registration */
     server.start((err) => {
 
@@ -37,9 +42,5 @@ server.register({
     });
 });
 
-const haho = server.plugins.haho;
-haho.subscribe('test/hello', (topic, message) => {
 
-    console.log('message', message);
-});
 ```
