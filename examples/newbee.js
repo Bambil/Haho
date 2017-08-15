@@ -13,7 +13,7 @@ server.connection({
 server.register({
     register: Haho,
     options: {
-        url: 'mqtt://192.168.73.5:1883'
+        url: 'mqtt://127.0.0.1:1883'
     }
 }, (err) => {
 
@@ -27,11 +27,18 @@ server.register({
             console.log('error when starting server', err);
         }
         console.log('service started');
+        haho.publish('test/hello', 'Hi');
     });
 });
 
 const haho = server.plugins.haho;
-haho.subscribe('test/hello', (topic, message) => {
 
-    console.log('message', message);
-});
+haho.subscribe([
+    {
+        topic: 'test/hello',
+        handler: (topic, message) => {
+
+            console.log('message', message);
+        }
+    }
+]);
