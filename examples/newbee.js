@@ -2,6 +2,7 @@
 
 const Hapi = require('hapi');
 const Haho = require('../lib');
+const Joi = require('joi');
 
 
 const server = new Hapi.Server();
@@ -28,6 +29,7 @@ server.register({
         }
         console.log('service started');
         haho.publish('test/hello', 'Hi');
+        haho.publish('test/valid', JSON.stringify({ Hello: 1 }));
     });
 });
 
@@ -40,5 +42,14 @@ haho.subscribe([
 
             console.log('message', message);
         }
+    }, {
+        topic: 'test/valid',
+        handler: (topic, message) => {
+
+            console.log('message', message);
+        },
+        validator: Joi.object().keys({
+            Hello: Joi.number()
+        })
     }
 ]);
