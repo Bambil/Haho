@@ -28,6 +28,9 @@
     "hapi": "^16.5.2",
     "mqtt": "^2.11.0"
   },
+  "optionalDependencies": {
+    "joi": "^10.6.0"
+  },
   "peerDependencies": {
     "hapi": "^16.5.2"
   },
